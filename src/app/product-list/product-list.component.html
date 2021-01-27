@@ -1,0 +1,25 @@
+<ul *ngFor="let product of productList" class="product-list">
+
+    <li>
+        <a href="#"><img src="{{ product.img }}" width="195" height="280" /><br />
+        {{product.title}} </a><br />
+        {{product.price}} р.
+        <button class="product-list__button" (click)="addToCart(product)">
+            В корзину
+        </button>
+    </li>
+
+    <!--
+    <% products.forEach(product => { %>
+        <li>
+            <a href="#"><img src="<%= product.img %>" width="195" height="280" /><br />
+            <%= product.title %></a><br />
+            <%= product.price %> р.
+            <button class="product-list__button" onclick="myAjax.shoppingCart.addItemToBasket('<%= product.id %>', '<%= product.title %>', `<%= product.price %>`)">
+                В корзину
+            </button>
+        </li>
+    <% }); %>
+    -->
+</ul>
+    

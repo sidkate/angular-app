@@ -1,6 +1,5 @@
-<ul *ngFor="let product of productList" class="product-list">
-
-    <li>
+<ul class="product-list">
+    <li *ngFor="let product of productList">
         <a href="#"><img src="{{ product.img }}" width="195" height="280" /><br />
         {{product.title}} </a><br />
         {{product.price}} р.

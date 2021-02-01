@@ -1,1 +1,18 @@
-<p>basket works!</p>
+<span class="close-popup" onclick="myAjax.shoppingCart.closePopup()">+</span>
+<p class="heading-popup">Товары в Вашей корзине:</p>
+<table class="heading-list-popup" width="500">
+<tr>
+    <td>наименование</td>
+    <td>количество</td>
+    <td>стоимость</td>
+</tr>
+</table>
+<table class="popup-list" id="popupList" width="500">
+    <ng-container *ngFor="let productRow of productRows">
+        <app-product-row [basket]="this" [productRow]="productRow"></app-product-row>
+        <!-- <td>{{productRow.title}}</td>
+        <td class="counter"></td>
+        <td><span class="cost">{{productRow.cost}}</span> руб. </td>
+        <td class="delete-item-basket" (click)="deleteProduct(productRow.id)"> + </td> -->
+    </ng-container>
+</table>

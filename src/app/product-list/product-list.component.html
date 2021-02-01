@@ -1,24 +1,6 @@
 <ul class="product-list">
     <li *ngFor="let product of productList">
-        <a href="#"><img src="{{ product.img }}" width="195" height="280" /><br />
-        {{product.title}} </a><br />
-        {{product.price}} р.
-        <button class="product-list__button" (click)="addToCart(product)">
-            В корзину
-        </button>
+        <app-product-card [product]="product" (addedToCart)="basket.addItemToBasket($event)" ></app-product-card>
     </li>
-
-    <!--
-    <% products.forEach(product => { %>
-        <li>
-            <a href="#"><img src="<%= product.img %>" width="195" height="280" /><br />
-            <%= product.title %></a><br />
-            <%= product.price %> р.
-            <button class="product-list__button" onclick="myAjax.shoppingCart.addItemToBasket('<%= product.id %>', '<%= product.title %>', `<%= product.price %>`)">
-                В корзину
-            </button>
-        </li>
-    <% }); %>
-    -->
 </ul>
-    
+<app-basket #basket></app-basket>

@@ -1,1 +1,6 @@
-<p>product-row works!</p>
+<ng-container *ngIf="productRow && basket">
+    <td>{{productRow.title}}</td>
+    <app-counter (changed)="onCounterChange($event)" ></app-counter>
+    <td><span class="cost">{{productRow.cost}}</span> руб. </td>
+    <td class="delete-item-basket" (click)="basket.deleteProduct(productRow.id)"> + </td>
+</ng-container>

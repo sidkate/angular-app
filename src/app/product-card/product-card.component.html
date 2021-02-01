@@ -1,1 +1,8 @@
-
+<ng-container *ngIf="product">
+    <a href="#"><img src="{{ product.img }}" width="195" height="280" /><br />
+    {{product.title}} </a><br />
+    {{product.price}} р.
+    <button class="product-list__button" (click)="addToCart(product)">
+        В корзину
+    </button>
+</ng-container>

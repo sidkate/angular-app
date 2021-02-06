@@ -26,8 +26,8 @@ export class BasketComponent implements OnInit {
       productRow = new ProductRow(product.id, product.title, product.price);
       this.products.set(product.id, productRow);
     }
-    this.openPopup();
-    console.info(this.products);
+    //this.openPopup();
+    console.info(this.products)
   }
 
   public deleteProduct(id: string): void {
@@ -43,7 +43,7 @@ export class BasketComponent implements OnInit {
     return Array.from(this.products.values());
   }
 
-  private get counter(): number {
+  public get counter(): number {
     return Array.from(this.products.values()).reduce((sum, product) => sum + product.count, 0);
   }
 

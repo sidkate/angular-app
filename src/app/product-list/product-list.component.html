@@ -1,6 +1,6 @@
-<ul class="product-list">
+<ul *ngIf="basket" class="product-list">
     <li *ngFor="let product of productList">
         <app-product-card [product]="product" (addedToCart)="basket.addItemToBasket($event)" ></app-product-card>
     </li>
 </ul>
-<app-basket #basket></app-basket>
+

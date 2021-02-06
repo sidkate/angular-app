@@ -1,10 +1,12 @@
-<div class="menu-burger" onclick="myAjax.openBurger()">
-    <span></span>
-</div>
-<ul class="menu-main">
-    <li class="menu-main__home"><a href="/">Главная</a></li>
-    <li class="menu-main__catalog _active"><a href="/products">Каталог</a></li>
-    <li class="menu-main__contacts"><a href="#">Контакты</a></li>
-    <li class="menu-main__registr"><a href="#">Регистрация</a></li>
-    <li class="menu-main__basket" onclick="myAjax.shoppingCart.openPopup()"><a href="#" id="basket">0</a></li>
-</ul>
+<ng-container *ngIf="basket">
+    <div class="menu-burger" onclick="myAjax.openBurger()">
+        <span></span>
+    </div>
+    <ul class="menu-main">
+        <li class="menu-main__home"><a href="/">Главная</a></li>
+        <li class="menu-main__catalog _active"><a href="/products">Каталог</a></li>
+        <li class="menu-main__contacts"><a href="#">Контакты</a></li>
+        <li class="menu-main__registr"><a href="#">Регистрация</a></li>
+        <li class="menu-main__basket" (click)="basket.openPopup()"><a href="#" id="basket">{{basket.counter}}</a></li>
+    </ul>
+</ng-container>

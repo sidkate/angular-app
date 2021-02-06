@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BasketComponent } from '../basket/basket.component';
+import { BasketService } from '../service/basket.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,9 +8,9 @@ import { BasketComponent } from '../basket/basket.component';
 })
 export class MenuComponent implements OnInit {
 
-  @Input() basket?: BasketComponent;
+  //@Input() basket?: BasketComponent;
 
-  constructor() { }
+  constructor(public basket: BasketService) { }
 
   ngOnInit(): void {
   }

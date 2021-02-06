@@ -2,12 +2,14 @@
   {{title}}
 </h1>-->
 
-<app-header [basket]="basket"></app-header>
+<app-header ></app-header>
 <div class="content">
   <hr />
-  <app-product-list [basket]="basket"></app-product-list>
+  <!--<app-product-list [basket]="basket"></app-product-list>-->
+  <router-outlet>
+  </router-outlet>
   <hr />
 </div>
 
-<app-basket #basket></app-basket>
+<app-basket></app-basket>
 <app-footer></app-footer>

@@ -8,7 +8,7 @@ import { BasketComponent } from '../basket/basket.component';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() basket?: BasketComponent;
+  //@Input() basket?: BasketComponent;
   
   constructor() { }
 

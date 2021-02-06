@@ -3,10 +3,11 @@
         <span></span>
     </div>
     <ul class="menu-main">
-        <li class="menu-main__home"><a href="/">Главная</a></li>
-        <li class="menu-main__catalog _active"><a href="/products">Каталог</a></li>
-        <li class="menu-main__contacts"><a href="#">Контакты</a></li>
-        <li class="menu-main__registr"><a href="#">Регистрация</a></li>
-        <li class="menu-main__basket" (click)="basket.openPopup()"><a href="#" id="basket">{{basket.counter}}</a></li>
+        <li class="menu-main__home"><a [routerLink]="'/'">Главная</a></li>
+        <li class="menu-main__catalog _active"><a [routerLink]="'/products'">Каталог</a></li>
+        <!-- <li class="menu-main__contacts"><a>Контакты</a></li>
+        <li class="menu-main__registr"><a>Регистрация</a></li> -->
+        <li class="menu-main__profile _active"><a [routerLink]="'/user-profile'">User profile</a></li>
+        <li class="menu-main__basket" (click)="basket.openPopup()"><a id="basket">{{basket.counter}}</a></li>
     </ul>
 </ng-container>

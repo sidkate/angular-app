@@ -11,6 +11,8 @@ export class BasketComponent implements OnInit {
 
   public products: Map<string, ProductRow>;
 
+  public popupVisible: boolean = false;
+
   constructor() {
     this.products = new Map<string, ProductRow>();
   }
@@ -24,6 +26,7 @@ export class BasketComponent implements OnInit {
       productRow = new ProductRow(product.id, product.title, product.price);
       this.products.set(product.id, productRow);
     }
+    this.openPopup();
     console.info(this.products);
   }
 
@@ -31,6 +34,8 @@ export class BasketComponent implements OnInit {
     let product = this.products.get(id);
     if (product) {
       this.products.delete(id);
+      if (this.counter == 0)
+        this.closePopup();
     }
   }
 
@@ -40,6 +45,14 @@ export class BasketComponent implements OnInit {
 
   private get counter(): number {
     return Array.from(this.products.values()).reduce((sum, product) => sum + product.count, 0);
+  }
+
+  public openPopup(): void {
+    this.popupVisible = true;
+  }
+
+  public closePopup(): void {
+    this.popupVisible = false;
   }
 
 }

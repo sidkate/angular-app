@@ -1,0 +1,7 @@
+<ng-container *ngIf="product; else elseBlock;">
+    <img src="{{ product.img }}" width="195" height="280" /><br />
+    {{product.title}} <br />
+    {{product.price}} р.
+</ng-container>
+
+<ng-template #elseBlock>Product not found: {{id}}.</ng-template>

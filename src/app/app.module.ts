@@ -11,6 +11,7 @@ import { BasketComponent } from './basket/basket.component';
 import { ProductRowComponent } from './product-row/product-row.component';
 import { CounterComponent } from './counter/counter.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     BasketComponent,
     ProductRowComponent,
     CounterComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

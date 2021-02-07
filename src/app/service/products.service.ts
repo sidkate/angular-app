@@ -13,4 +13,8 @@ export class ProductsService {
     return products;
   }
 
+  public getProductById(id: string): Product {
+    const productById = products.filter(product => product.id == id);
+    return productById[0];
+  }
 }

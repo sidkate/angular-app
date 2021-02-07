@@ -1,4 +1,4 @@
-<ng-container *ngIf="product; else elseBlock;">
+<ng-container *ngIf="product$ | async as product; else elseBlock;">
     <img src="{{ product.img }}" width="195" height="280" /><br />
     {{product.title}} <br />
     {{product.price}} р.

@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
-import { products } from '../mocks/products.mock';
+import { Observable, ReplaySubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public getProducts(): Product[] {
-    return products;
+  public getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>('/api/products');
   }
 
-  public getProductById(id: string): Product {
-    const productById = products.filter(product => product.id == id);
-    return productById[0];
+  public getProductById(id: string): Observable<Product> {
+    const observable = new ReplaySubject<Product>();
+    this.getProducts().subscribe(products => {
+      const productById: Product[] = products.filter(product => product.id == id);
+      observable.next(productById[0]);
+    });
+    return observable;
   }
+
 }

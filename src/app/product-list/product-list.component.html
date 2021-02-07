@@ -1,6 +1,6 @@
 <h1 class="content__h1">Каталог</h1>
 <ul *ngIf="basket" class="product-list">
-    <li *ngFor="let product of productList">
+    <li *ngFor="let product of productList$ | async">
         <app-product-card [product]="product" (addedToCart)="basket.addItemToBasket($event)" ></app-product-card>
     </li>
 </ul>

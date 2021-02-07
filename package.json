@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "server": "json-server server/mocks/products.mock.json --routes server/api.routes.json --no-cors=true"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
+    "json-server": "^0.16.3",
     "@angular-devkit/build-angular": "~0.1101.1",
     "@angular/cli": "~11.1.1",
     "@angular/compiler-cli": "~11.1.0",

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
-import { products } from '../mocks/products.mock';
 import { ProductRow } from '../model/product-row.model';
 
 @Injectable({

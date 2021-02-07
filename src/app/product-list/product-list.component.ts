@@ -1,24 +1,31 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../model/product.model';
-import { BasketComponent } from '../basket/basket.component';
 import { ProductsService } from '../service/products.service';
 import { BasketService } from '../service/basket.service';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.less']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
-  //@Input() basket?: BasketComponent;
-
-  public productList: Product[] = [];
+  public productList$: Subject<Product[]> = new ReplaySubject<Product[]>();
+  private unsubscribe$: Subject<void> = new Subject();
 
   constructor(private productsService: ProductsService, public basket: BasketService) { }
 
   ngOnInit(): void {
-    this.productList = this.productsService.getProducts();
+    this.productsService.getProducts()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(products => this.productList$.next(products));
+  }
+
+  ngOnDestroy(): void {
+    console.info("on destroy ProductListComponent");
+    this.unsubscribe$.next();
   }
 
 }

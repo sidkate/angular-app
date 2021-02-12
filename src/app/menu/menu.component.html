@@ -8,6 +8,7 @@
         <!-- <li class="menu-main__contacts"><a>Контакты</a></li>
         <li class="menu-main__registr"><a>Регистрация</a></li> -->
         <li class="menu-main__profile _active"><a [routerLink]="'/user-profile'">User profile</a></li>
+        <li class="menu-main__addproduct _active"><a [routerLink]="'/admin/addProduct'">New product</a></li>
         <li class="menu-main__basket" (click)="basket.openPopup()"><a id="basket">{{basket.counter}}</a></li>
     </ul>
 </ng-container>

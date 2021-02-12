@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
 import { Observable, ReplaySubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { v1 as uuid } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,11 @@ export class ProductsService {
       observable.next(productById[0]);
     });
     return observable;
+  }
+
+  public createProduct(product: Product): Observable<Product> {
+    product.id = uuid();
+    return this.http.post<Product>('/api/products', product);
   }
 
 }

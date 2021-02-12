@@ -13,6 +13,9 @@ import { ProductRowComponent } from './product-row/product-row.component';
 import { CounterComponent } from './counter/counter.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +28,14 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ProductRowComponent,
     CounterComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    UserProfileComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

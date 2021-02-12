@@ -10,7 +10,7 @@
 </table>
 <table class="popup-list" id="popupList" width="500">
     <ng-container *ngFor="let productRow of productRows">
-        <app-product-row [basket]="this" [productRow]="productRow"></app-product-row>
+        <app-product-row [productRow]="productRow"></app-product-row>
         <!-- <td>{{productRow.title}}</td>
         <td class="counter"></td>
         <td><span class="cost">{{productRow.cost}}</span> руб. </td>

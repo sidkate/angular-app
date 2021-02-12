@@ -10,7 +10,7 @@ export class CounterComponent implements OnInit {
   //@Input() product?: ProductRow;
   @Output() changed = new EventEmitter<number>();
 
-  public count: number = 1;
+  @Input() public count: number = 1;
 
   constructor() { }
 
